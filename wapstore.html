@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>StoreZwear – Chợ Ứng Dụng Web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body{margin:0;font-family:Arial;background:#0f172a;color:white}
+header{padding:20px;text-align:center;font-size:26px;font-weight:bold;background:#1e293b}
+.app{background:#111827;margin:15px;border-radius:18px;padding:15px;display:flex;gap:15px;align-items:center}
+.app img{width:80px;height:80px;border-radius:16px}
+.btn{padding:10px 14px;border-radius:12px;border:none;font-weight:bold;cursor:pointer}
+.install{background:#22c55e;color:black}
+.open{background:#3b82f6;color:white}
+footer{text-align:center;padding:15px;font-size:12px;opacity:.7}
+</style>
+</head>
+
+<body>
+
+<header>🛍️ StoreZwear</header>
+
+<div class="app">
+<img src="https://i.imgur.com/J5LVHEL.png">
+<div>
+<h3>The Cat Story</h3>
+<p>Sách + Audio + Chatbot</p>
+<button class="btn install" onclick="installApp()">Cài đặt</button>
+<button class="btn open" onclick="location.href='https://tranbaoanmts20163a-design.github.io/the-cat-story/'">Mở</button>
+</div>
+</div>
+
+<footer>© 2026 StoreZwear</footer>
+
+<script>
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", e=>{
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+function installApp(){
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>deferredPrompt=null);
+  }else{
+    alert("Mở bằng Chrome → Menu → Thêm vào màn hình chính");
+  }
+}
+</script>
+
+</body>
+</html>

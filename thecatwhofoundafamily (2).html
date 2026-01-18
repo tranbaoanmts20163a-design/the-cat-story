@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cat Who Found a Family - Sách & Audio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #fdf2f2;
+            background-image: url("https://www.transparenttextures.com/patterns/paws.png");
+        }
+    </style>
+</head>
+<body class="bg-pattern text-gray-800">
+
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 glass-card shadow-sm px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text flex items-center gap-2">
+            <i class="fas fa-cat"></i> The Cat Story
+        </div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="#home" class="hover:text-red-500 transition">Trang Chủ</a>
+            <a href="#read" class="hover:text-red-500 transition">Đọc Sách</a>
+            <a href="#audio" class="hover:text-red-500 transition">Nghe Audio</a>
+            <a href="#about" class="hover:text-red-500 transition">Tác Giả</a>
+        </div>
+        <button onclick="downloadBook()" class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition flex items-center gap-2">
+            <i class="fas fa-download"></i> Tải Sách
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 space-y-6">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+                The Cat Who Found a <span class="text-red-500">Family</span>
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                “A Tale of Love, Home, and Friendship” - Một câu chuyện cảm động về tình yêu thương, sự gắn kết và ý nghĩa thực sự của gia đình qua góc nhìn của một chú mèo nhỏ.
+            </p>
+            <div class="flex gap-4">
+                <a href="#read" class="bg-gray-900 text-white px-8 py-3 rounded-xl hover:bg-black transition">Bắt đầu đọc</a>
+                <a href="#audio" class="bg-white border-2 border-gray-900 px-8 py-3 rounded-xl hover:bg-gray-100 transition">Nghe Audio</a>
+            </div>
+        </div>
+        <div class="flex-1">
+            <div class="relative group">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" alt="Bìa sách chú mèo" class="rounded-3xl shadow-2xl transform group-hover:scale-105 transition duration-500">
+                <div class="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-2xl shadow-xl hidden lg:block">
+                    <p class="font-bold text-lg">Bởi Tác Giả: An</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Read Section -->
+    <section id="read" class="py-20 bg-white shadow-inner">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Đọc Trực Tuyến</h2>
+                <div class="w-20 h-1 bg-red-500 mx-auto"></div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 shadow-xl min-h-[500px]">
+                <div class="flex overflow-x-auto gap-4 mb-8 pb-2 scrollbar-hide" id="chapter-nav">
+                    <!-- Nav items injected by JS -->
+                </div>
+                <div id="content-display" class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    <!-- Content injected by JS -->
+                    <p class="text-center italic text-gray-400 mt-10">Chọn một chương để bắt đầu đọc...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Section -->
+    <section id="audio" class="py-20 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Audio Sách Nói</h2>
+            <p class="text-gray-500">Lắng nghe giọng đọc truyền cảm cho từng chương</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Audio Cards -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-red-500">
+                <h3 class="font-bold text-lg">Chương Một: The Arrival</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/5" type="audio/mpeg">
+                    Trình duyệt của bạn không hỗ trợ audio.
+                </audio>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-yellow-500">
+                <h3 class="font-bold text-lg">Chương Hai: Two Curious Souls</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/4" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-green-500">
+                <h3 class="font-bold text-lg">Chương Ba: The Secret Drawer</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-blue-500">
+                <h3 class="font-bold text-lg">Chương Bốn: Rain and Whiskers</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/2" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-purple-500">
+                <h3 class="font-bold text-lg">Chương Năm: The Window of Light</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/1" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 border-l-4 border-pink-500">
+                <h3 class="font-bold text-lg">Chương Sáu: Paws and Heartbeats</h3>
+                <audio controls class="w-full">
+                    <source src="https://googleusercontent.com/file_content/0" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Author -->
+    <section id="about" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-red-500 flex-shrink-0">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocJ9P99NH0p8-O3ChEFsDXIUYm_NptnRonxEeqZjX34ORHCTJFg=s360-c-no" alt="Author" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold">Về Tác Giả: An</h2>
+                <p class="text-gray-400 text-lg">
+                    An là một người kể chuyện tin rằng những khoảnh khắc nhỏ nhất thường mang ý nghĩa lớn nhất. Lấy cảm hứng từ mối quan hệ bền chặt giữa con người và động vật, những sáng tác của An luôn ấm áp, giản dị nhưng đầy chất thơ.
+                </p>
+                <div class="flex gap-4 pt-4 text-2xl">
+                    <i class="fab fa-facebook hover:text-red-500 cursor-pointer"></i>
+                    <i class="fab fa-instagram hover:text-red-500 cursor-pointer"></i>
+                    <i class="fas fa-envelope hover:text-red-500 cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-500 border-t border-gray-200">
+        <p>&copy; 2024 The Cat Who Found a Family. All Rights Reserved.</p>
+        <p class="text-sm mt-2">Được hỗ trợ bởi AI Storytelling.</p>
+    </footer>
+
+    <!-- Message Toast -->
+    <div id="toast" class="fixed bottom-10 right-10 bg-green-500 text-white px-6 py-3 rounded-xl shadow-2xl translate-y-40 transition duration-300 pointer-events-none">
+        Yêu cầu tải sách đã được gửi!
+    </div>
+
+    <script>
+        const chapters = [
+            {
+                id: 1,
+                title: "Chương 1: The Arrival",
+                subtitle: "Chú mèo lần đầu bước vào ngôi nhà mới – ánh mắt tò mò, trái tim còn lạ lẫm.",
+                content: "Chú mèo đứng lặng ở ngưỡng cửa. Một không gian rộng lớn, lạ lẫm và đầy những mùi hương mới lạ. Những bước chân đầu tiên rón rén, đôi tai vểnh lên nghe ngóng. Đây có phải là nơi dừng chân cuối cùng? Ánh sáng ấm áp từ phòng khách chiếu rọi, mời gọi chú bước vào cuộc hành trình của sự tin tưởng..."
+            },
+            {
+                id: 2,
+                title: "Chương 2: Two Curious Souls",
+                subtitle: "Cậu bé và chú mèo bắt đầu khám phá nhau – những trò nghịch ngợm đầu tiên.",
+                content: "Cậu bé cúi thấp người, đôi mắt to tròn nhìn thẳng vào chú mèo. Chú mèo khẽ lùi lại nhưng rồi lại tò mò tiến tới. Một sợi dây thừng, một quả bóng len vụn, và hàng giờ đồng hồ rượt đuổi. Giữa hai tâm hồn nhỏ bé, một sợi dây vô hình bắt đầu được dệt nên..."
+            },
+            {
+                id: 3,
+                title: "Chương 3: The Secret Drawer",
+                subtitle: "Một ngăn bàn chứa đầy những điều chưa nói – mèo trở thành người bạn lắng nghe.",
+                content: "Trong căn phòng yên tĩnh, cậu bé thường mở ngăn bàn bí mật, nơi cất giữ những lá thư chưa gửi và những nỗi buồn trẻ thơ. Chú mèo chỉ ngồi đó, im lặng bên cạnh, đôi mắt vàng óng như hiểu thấu mọi điều. Không cần lời nói, chỉ cần sự hiện diện."
+            },
+            {
+                id: 4,
+                title: "Chương 4: Rain and Whiskers",
+                subtitle: "Cơn mưa lớn cuốn mèo đi xa – cả gia đình cùng nhau tìm kiếm trong lo lắng.",
+                content: "Bầu trời xám xịt và những hạt mưa nặng hạt bắt đầu rơi. Chú mèo mải mê đuổi theo một cánh bướm mà quên mất đường về. Đêm đó, cả gia đình cầm đèn pin, gọi vang tên chú trong màn mưa. Nỗi sợ mất mát lần đầu tiên hiện hữu rõ rệt..."
+            },
+            {
+                id: 5,
+                title: "Chương 5: The Window of Light",
+                subtitle: "Mèo trở về, cậu bé trưởng thành hơn – ánh sáng từ cửa sổ như một lời hứa.",
+                content: "Khi tia sáng đầu ngày xuyên qua cửa sổ, một tiếng 'meo' yếu ớt vang lên. Chú mèo trở về, ướt sũng nhưng an toàn. Cậu bé ôm chặt lấy người bạn nhỏ, nhận ra rằng việc bảo vệ người mình thương yêu là một trách nhiệm thiêng liêng."
+            },
+            {
+                id: 6,
+                title: "Chương 6: Paws and Heartbeats",
+                subtitle: "Những ngày bình yên – mèo và cậu bé cùng lớn lên trong vòng tay gia đình.",
+                content: "Nhiều năm trôi qua, những vết chân mèo trên sàn nhà đã trở thành một phần của kiến trúc ngôi nhà. Cậu bé đã cao hơn, chú mèo đã già dặn hơn, nhưng tình yêu giữa họ vẫn vẹn nguyên như ngày đầu tiên bước qua ngưỡng cửa ấy. 'Gia đình' không chỉ là nơi chốn, mà là cảm giác khi ở bên nhau."
+            }
+        ];
+
+        function renderNav() {
+            const nav = document.getElementById('chapter-nav');
+            chapters.forEach(ch => {
+                const btn = document.createElement('button');
+                btn.className = "flex-shrink-0 px-6 py-2 rounded-full border border-gray-200 hover:bg-red-500 hover:text-white transition whitespace-nowrap";
+                btn.innerText = "Chương " + ch.id;
+                btn.onclick = () => showChapter(ch.id);
+                nav.appendChild(btn);
+            });
+        }
+
+        function showChapter(id) {
+            const display = document.getElementById('content-display');
+            const chapter = chapters.find(c => c.id === id);
+            display.innerHTML = `
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">${chapter.title}</h3>
+                <p class="text-red-500 italic mb-6">${chapter.subtitle}</p>
+                <div class="text-lg leading-relaxed text-gray-700 space-y-4">
+                    ${chapter.content}
+                </div>
+            `;
+            // Scroll to content for mobile
+            if(window.innerWidth < 768) {
+                display.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function downloadBook() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-40');
+            setTimeout(() => {
+                toast.classList.add('translate-y-40');
+            }, 3000);
+            
+            // In a real environment, you'd trigger a file download link here
+            console.log("Triggering download for: The Cat Who Found a Family.docx");
+        }
+
+        window.onload = () => {
+            renderNav();
+        };
+    </script>
+<script
+    chatbot_id="696b8099d2ba8611794713fb"
+    data-type="default"
+    src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js"
+></script>
+</body>
+</html>

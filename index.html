@@ -253,6 +253,11 @@
             renderNav();
         };
     </script>
+    <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
 <script
     chatbot_id="696b8099d2ba8611794713fb"
     data-type="default"
@@ -260,3 +265,4 @@
 ></script>
 </body>
 </html>
+
